@@ -94,4 +94,22 @@ describe('Testing controller: gpaCtrl', function(){
             expect(toNumber("F")).toEqual(0);
         });
     });
+
+    describe("testing GPA calculation: ", function(){
+        it("should calculate the GPA", function(){
+            scope.classField = "Class 1";
+            scope.creditsField = "4";
+            scope.gradeField = "C";
+            scope.addData();
+            scope.classField = "Class 1";
+            scope.creditsField = "2";
+            scope.gradeField = "A";
+            scope.addData();
+            scope.classField = "Class 1";
+            scope.creditsField = "2";
+            scope.gradeField = "F";
+            scope.addData();
+            expect(calculateGPA().toEqual(2));
+        });
+    });
 })
