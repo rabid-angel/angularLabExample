@@ -64,3 +64,34 @@ describe('Testing controller: navbarCtrl', function(){
       expect(scope.pages.length > 0).toEqual(true);
     });
 });
+
+//=== Testing gpaCtrl ===========================================
+describe('Testing controller: gpaCtrl', function(){
+    beforeEach(module('mainApp'));
+
+    var gpaCtrl, scope;
+
+    // Initialize the controller and mock scope.
+    beforeEach(inject(function($controller, $rootScope) {
+        scope = $rootScope.$new();
+        gpaCtrl = $controller('gpaCtrl', {
+            $scope: scope
+        });
+    }));
+
+    describe("testing data functionality: ", function(){
+        it("should not contain data by default", function(){
+            expect(scope.data.length == 0).toEqual(true);
+        });
+    });
+
+    describe("testing toNumber function: ", function(){
+        it("should turn letter grades into corresponding point values", function(){
+            expect(toNumber("A")).toEqual(4);
+            expect(toNumber("B")).toEqual(3);
+            expect(toNumber("C")).toEqual(2);
+            expect(toNumber("D")).toEqual(1);
+            expect(toNumber("F")).toEqual(0);
+        });
+    });
+})
