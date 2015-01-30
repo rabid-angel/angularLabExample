@@ -81,4 +81,18 @@ mainApp.controller('gpaCtrl', function($scope){
     $scope.itemsInList = function(){
         return $scope.data.length;
     };
+
+    toNumber = function(grade){
+        if(grade=='A'){
+            return 4;
+        } else if(grade=='B'){
+            return 3;
+        } else if(grade=='C'){
+            return 2;
+        } else if(grade=='D'){
+            return 1;
+        } else if(grade=='F'){
+            return 0;
+        }
+    };
 });
