@@ -112,4 +112,20 @@ describe('Testing controller: gpaCtrl', function(){
             expect(scope.returnGPA()).toEqual(2);
         });
     });
+
+    describe("testing GPA color: ", function(){
+        it("should return okGPA", function(){
+            scope.classField = "Class 1";
+            scope.creditsField = "4";
+            scope.gradeField = "C";
+            scope.addData();
+            scope.classField = "Class 1";
+            scope.creditsField = "2";
+            scope.gradeField = "A";
+            scope.addData();
+            scope.classField = "Class 1";
+            scope.creditsField = "2";
+            scope.gradeField = "F";
+            scope.addData();
+            expect(scope.returnColorClass()).toBe('okGPA');
 })

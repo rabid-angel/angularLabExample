@@ -23,3 +23,8 @@ img {
 .floatRight {
     float: right;
 }
+
+.badGPA {
+    float: right;
+    color: red;
+}
