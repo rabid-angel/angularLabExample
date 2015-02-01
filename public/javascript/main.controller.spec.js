@@ -109,7 +109,7 @@ describe('Testing controller: gpaCtrl', function(){
             scope.creditsField = "2";
             scope.gradeField = "F";
             scope.addData();
-            expect(scope.calculateGPA()).toEqual(2);
+            expect(scope.returnGPA()).toEqual(2);
         });
     });
 })
