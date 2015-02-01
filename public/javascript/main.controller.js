@@ -57,6 +57,8 @@ mainApp.controller('gpaCtrl', function($scope){
     $scope.creditsField = "";
     $scope.gradeField = "";
 
+    $scope.gpa = 0;
+
     // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
     $scope.data = [
     ];
@@ -67,11 +69,13 @@ mainApp.controller('gpaCtrl', function($scope){
             $scope.classField = "";
             $scope.creditsField = "";
             $scope.gradeField = "";
+            $scope.calculateGPA();
         }
     };
 
     $scope.removeData = function(index){
         $scope.data.splice(index, 1);
+        $scope.calculateGPA();
     };
 
     $scope.cat = function(str1, str2){
@@ -103,7 +107,11 @@ mainApp.controller('gpaCtrl', function($scope){
             gradeTotal = gradeTotal + (toNumber($scope.data[i].grade) * $scope.data[i].credits);
             creditTotal = creditTotal + parseInt($scope.data[i].credits);
         }
-        var gpa = gradeTotal / creditTotal;
-        return gpa;
+        var newGPA = gradeTotal / creditTotal;
+        $scope.gpa = newGPA;
+    }
+
+    $scope.returnGPA = function(){
+        return $scope.gpa;
     }
 });
