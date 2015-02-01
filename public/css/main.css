@@ -28,3 +28,13 @@ img {
     float: right;
     color: red;
 }
+
+.goodGPA {
+    float: right;
+    color: green;
+}
+
+.okGPA {
+    float: right;
+    color: #A7A502;
+}

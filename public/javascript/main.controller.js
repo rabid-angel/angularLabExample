@@ -57,7 +57,7 @@ mainApp.controller('gpaCtrl', function($scope){
     $scope.creditsField = "";
     $scope.gradeField = "";
 
-    $scope.gpa = 0;
+    $scope.gpa = NaN;
 
     // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
     $scope.data = [
@@ -65,11 +65,15 @@ mainApp.controller('gpaCtrl', function($scope){
 
     $scope.addData = function(){
         if($scope.classField.length >= 1 && $scope.creditsField.length >= 1 && $scope.gradeField.length  == 1) {
-            $scope.data.push({class: $scope.classField, credits: $scope.creditsField, grade: $scope.gradeField});
-            $scope.classField = "";
-            $scope.creditsField = "";
-            $scope.gradeField = "";
-            $scope.calculateGPA();
+            if(isNaN($scope.creditsField) || ($scope.creditsField < 0) || (toNumber($scope.gradeField) == "false")){
+                alert("Input not valid. Please double-check your input.")
+            } else {
+                $scope.data.push({class: $scope.classField, credits: $scope.creditsField, grade: $scope.gradeField});
+                $scope.classField = "";
+                $scope.creditsField = "";
+                $scope.gradeField = "";
+                $scope.calculateGPA();
+            }
         }
     };
 
@@ -97,6 +101,8 @@ mainApp.controller('gpaCtrl', function($scope){
             return 1;
         } else if(grade=='F'){
             return 0;
+        } else {
+            return "false";
         }
     };
 
