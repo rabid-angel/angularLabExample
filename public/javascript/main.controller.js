@@ -109,9 +109,19 @@ mainApp.controller('gpaCtrl', function($scope){
         }
         var newGPA = gradeTotal / creditTotal;
         $scope.gpa = newGPA;
-    }
+    };
 
     $scope.returnGPA = function(){
         return $scope.gpa;
+    };
+
+    $scope.returnColorClass = function(){
+        if($scope.gpa <= 2){
+            return "badGPA";
+        } else if($scope.gpa >= 3){
+            return "goodGPA";
+        } else {
+            return "okGPA";
+        }
     }
 });

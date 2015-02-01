@@ -113,8 +113,8 @@ describe('Testing controller: gpaCtrl', function(){
         });
     });
 
-    describe("testing GPA color: ", function(){
-        it("should return okGPA", function(){
+    describe("testing GPA color: ", function() {
+        it("should return badGPA", function () {
             scope.classField = "Class 1";
             scope.creditsField = "4";
             scope.gradeField = "C";
@@ -127,5 +127,7 @@ describe('Testing controller: gpaCtrl', function(){
             scope.creditsField = "2";
             scope.gradeField = "F";
             scope.addData();
-            expect(scope.returnColorClass()).toBe('okGPA');
+            expect(scope.returnColorClass()).toBe('badGPA');
+        });
+    });
 })
