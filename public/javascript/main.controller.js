@@ -101,9 +101,8 @@ mainApp.controller('gpaCtrl', function($scope){
         var creditTotal = 0;
         for (var i = 0; i < $scope.data.length; i++) {
             gradeTotal = gradeTotal + (toNumber($scope.data[i].grade) * $scope.data[i].credits);
-            creditTotal = creditTotal + ($scope.data[i].credits;
+            creditTotal = creditTotal + parseInt($scope.data[i].credits);
         }
-        console.log(gradeTotal / creditTotal);
         var gpa = gradeTotal / creditTotal;
         return gpa;
     }
